@@ -1,50 +1,45 @@
 .chat {
-    min-height: 100vh;
-    background: linear-gradient(#596aff, #383699);
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-  
+  min-height: 100vh;
+  background: linear-gradient(#596aff, #383699);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 1000px;
+  height: 90vh;
+  background-color: aliceblue;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Tablet View (768px and below) */
+@media (max-width: 768px) {
   .chat-container {
-    width: 100%;
-    max-width: 1000px;
-    height: 75vh;
-    background-color: aliceblue;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    border-radius: 10px;
-  
-    /* overflow: hidden; <-- এই লাইনটা সরান */
+    grid-template-columns: 1fr 2fr;
   }
-  
-  /* Tablet View (768px and below) */
-  @media (max-width: 768px) {
-    .chat-container {
-      grid-template-columns: 1fr 2fr;
-    }
-  
-    /* Hide Right Sidebar on tablets */
-    .chat-container > :nth-child(3) {
-      display: none;
-    }
+
+  /* Hide Right Sidebar */
+  .chat-container > :nth-child(3) {
+    display: none;
   }
-  
-  /* Mobile View (480px and below) */
-  @media (max-width: 480px) {
-    .chat-container {
-      grid-template-columns: 1fr;
-      height: auto;
-    }
-  
-    /* Hide Right Sidebar and ChatBox on mobile by default */
-    .chat-container > :nth-child(2),
-    .chat-container > :nth-child(3) {
-      display: none;
-    }
-  
-    /* Optional: Show only ChatBox if it's an active conversation */
-    /* You can control it via conditional rendering or media-query toggle class in JS */
+}
+
+/* Mobile View (480px and below) */
+@media (max-width: 480px) {
+  .chat-container {
+    grid-template-columns: 1fr;
+    height: auto;
   }
-  
+
+  /* Hide ChatBox and Right Sidebar */
+  .chat-container > :nth-child(2),
+  .chat-container > :nth-child(3) {
+    display: none;
+  }
+}
